@@ -1,9 +1,38 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const mail = "adriandotel@gmail.com";
+  const productId = "27025826-43";
+
+  const handleConfirm = async () => {
+    if (isSubmitting) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const query = new URLSearchParams({ mail, productId }).toString();
+
+    try {
+      await fetch(`/api/order-confirmation?${query}`, {
+        method: "GET",
+        cache: "no-store",
+      });
+    } catch {
+    } finally {
+      router.push("/confirmado");
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col max-w-[430px] mx-auto">
       <Header />
@@ -23,12 +52,14 @@ export default function Home() {
 
         <ProductCard />
 
-        <Link
-          href="/confirmado"
+        <button
+          type="button"
+          onClick={handleConfirm}
+          disabled={isSubmitting}
           className="block w-full bg-black text-white text-center py-4 mt-8 text-sm font-medium uppercase tracking-wider"
         >
           Confirmar
-        </Link>
+        </button>
       </main>
 
       <Footer />
