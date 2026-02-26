@@ -55,6 +55,12 @@ export default function Home() {
         >
           Confirmar
         </button>
+        <button
+          type="button"
+          className="block w-full border border-black text-black text-center py-4 mt-3 text-sm font-medium uppercase tracking-wider"
+        >
+          Cancelar
+        </button>
       </main>
 
       <Footer />
