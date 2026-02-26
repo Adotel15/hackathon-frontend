@@ -6,9 +6,6 @@ import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 
-const ORDER_CONFIRMATION_URL =
-  "http://aiternative-mango-alb-1984945680.us-east-1.elb.amazonaws.com/order-confirmation?productId=27025826-43&mail=adriandotel@gmail.com";
-
 export default function Home() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,7 +18,7 @@ export default function Home() {
     setIsSubmitting(true);
 
     try {
-      await fetch(ORDER_CONFIRMATION_URL, {
+      await fetch("/api/order-confirmation", {
         method: "GET",
         cache: "no-store",
       });
