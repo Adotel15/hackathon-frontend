@@ -10,9 +10,6 @@ export default function Home() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const mail = "adriandotel@gmail.com";
-  const productId = "27025826-43";
-
   const handleConfirm = async () => {
     if (isSubmitting) {
       return;
@@ -20,10 +17,8 @@ export default function Home() {
 
     setIsSubmitting(true);
 
-    const query = new URLSearchParams({ mail, productId }).toString();
-
     try {
-      await fetch(`/api/order-confirmation?${query}`, {
+      await fetch("/api/order-confirmation", {
         method: "GET",
         cache: "no-store",
       });
