@@ -1,20 +1,19 @@
-import Link from "next/link";
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default function Confirmado() {
   return (
     <div className="min-h-screen flex flex-col max-w-[430px] mx-auto">
       <Header />
 
       <main className="flex-1 px-5 pt-8">
         <h1 className="text-xl font-medium mb-3 tracking-tight">
-          ¿QUIERES SELECCIONAR ESTE ARTÍCULO?
+          ¡CAMBIO CONFIRMADO!
         </h1>
         <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-          Este artículo se añadirá a tu pedido original sin ningún coste
-          adicional.
+          En breves recibirás un e-mail de confirmación con el cambio de
+          artículo.
         </p>
 
         <p className="text-sm mb-6">
@@ -22,13 +21,6 @@ export default function Home() {
         </p>
 
         <ProductCard />
-
-        <Link
-          href="/confirmado"
-          className="block w-full bg-black text-white text-center py-4 mt-8 text-sm font-medium uppercase tracking-wider"
-        >
-          Confirmar
-        </Link>
       </main>
 
       <Footer />
