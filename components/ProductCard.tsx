@@ -18,7 +18,7 @@ export default function ProductCard() {
         <p className="mb-1">49,99 €</p>
         <div className="flex gap-4 text-sm">
           <p>Talla: M</p>
-          <p>Color: 70</p>
+          <p>Color: Rojo</p>
         </div>
       </div>
     </div>
